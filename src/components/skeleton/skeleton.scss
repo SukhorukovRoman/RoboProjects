@@ -1,0 +1,65 @@
+.skeleton {
+    
+    $base-color: #ddd;
+    $shine-color: rgba(229,229,229,0.8);
+    $base-background: linear-gradient(90deg, $base-color 0px, $shine-color 40px, $base-color 80px);
+    @mixin background-gradient {
+        background-image: linear-gradient(90deg, $base-color 0px, $shine-color 40px, $base-color 80px);
+    }
+
+    &__tabs {
+        margin-bottom: 50px;
+        &-tab {
+            width: 150px;
+            height: 50px;
+            border-radius: 10px;
+            // background: rgba(196, 196, 196, 0.3);
+            @include background-gradient;
+            background-size: 250px;
+            animation: shine-tab 1.6s infinite;
+        }
+    }
+
+    &__wrapper, &__tabs {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &__wrapper {
+        background: #FFFFFF;
+        border-radius: 10px;
+    }
+
+
+    &__item {
+        border-radius: 10px;
+        width: 370px;
+        height: 280px;
+        @include background-gradient;
+        background-size: 470px;
+        margin: 20px;
+        animation: shine-item 1.6s infinite;
+    }
+
+
+    @keyframes shine-item{
+        0% {
+            background-position: -100px;
+        }
+        100% {
+            background-position: 370px;
+        }
+    }
+
+    @keyframes shine-tab{
+        0% {
+            background-position: -50px;
+        }
+        100% {
+            background-position: 150px;
+        }
+    }
+    
+}

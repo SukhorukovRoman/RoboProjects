@@ -1,0 +1,140 @@
+@import '../../style/variables';
+
+.button {
+    display: flex;
+
+    svg {
+        path {
+            fill: $main-color;
+        }
+    }
+
+    &__regular {
+        border: 2px solid $main-color;
+        width: 160px;
+        height: 51px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        display: flex;
+        justify-content: center;
+        color: $main-color;
+        align-items: center;
+        transition: all .6s;
+        cursor: pointer;
+        background: transparent;
+
+        &:not([disabled]):hover {
+            box-shadow: 0 0 20px $main-color;
+        }
+    }
+
+    &__close {
+        width: 50px;
+        height: 50px;
+        transition: transform 0.5s;
+
+        &:hover {
+            cursor: pointer;
+            transform: rotate(90deg);
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+            fill: $main-color;
+        }
+    }
+
+    &.delete {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translate(50%, 50%);
+        cursor: pointer;
+        z-index: 10;
+        background: $main-color;
+        svg path{
+            fill: #FFFFFF;
+        }
+    }
+
+    &.loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        background-color: inherit;
+        width: 100%;
+        span {
+            --dot1: #788c9f;
+            --dot2: #788c9f33;
+            --dot3: #788c9f66;
+            --dot4: #788c9fb3;
+            --duration: 700ms;
+            --easing: linear;
+            --delay: 1ms;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        span:nth-child(1) {
+            background-color: var(--dot1);
+            animation: var(--duration) var(--easing) var(--delay) infinite normal flash1;
+        }
+        span:nth-child(2) {
+            background-color: var(--dot2);
+            animation: var(--duration) var(--easing) var(--delay) infinite normal flash2;
+        }
+        span:nth-child(3) {
+            background-color: var(--dot3);
+            animation: var(--duration) var(--easing) var(--delay) infinite normal flash3;
+        }
+        span:nth-child(4) {
+            background-color: var(--dot4);
+            animation: var(--duration) var(--easing) var(--delay) infinite normal flash4;
+        }
+
+        @keyframes flash1 {
+            0%, 100% { background-color: var(--dot1) }
+            25% { background-color: var(--dot2) }
+            50% { background-color: var(--dot3) }
+            75% { background-color: var(--dot4) }
+        }
+        @keyframes flash2 {
+            0%, 100% { background-color: var(--dot4) }
+            25% { background-color: var(--dot1) }
+            50% { background-color: var(--dot2) }
+            75% { background-color: var(--dot3) }
+        }
+        @keyframes flash3 {
+            0%, 100% { background-color: var(--dot3) }
+            25% { background-color: var(--dot4) }
+            50% { background-color: var(--dot1) }
+            75% { background-color: var(--dot2) }
+        }
+        @keyframes flash4 {
+            0%, 100% { background-color: var(--dot2) }
+            25% { background-color: var(--dot3) }
+            50% { background-color: var(--dot4) }
+            75% { background-color: var(--dot1) }
+        }
+    }
+
+
+    &[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+
+.hideBtnStyle {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}

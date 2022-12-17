@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import {useHttp} from "./hooks/http.hook";
+import {useEffect, useState} from "react";
+import Main from "./components/main";
+import {HOST} from "./config";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const {loading, request, error} = useHttp();
+    const [projects, setProjects] = useState([]);
+    //Домен window.location.hostname
+    const getAllPrejects = () => {
+        request(`${HOST}/api/project/read.php`, 'POST')
+            .then(response => {
+                setProjects(response.project)
+            })
+    }
+
+    useEffect(() => {
+        getAllPrejects();
+    }, []);
+
+    return (
+        <div className="App">
+            <Main
+                projects={projects}
+                loading={loading}
+                error={error}
+                onProjectChanged={getAllPrejects}
+            />
+        </div>
+    );
 }
 
 export default App;

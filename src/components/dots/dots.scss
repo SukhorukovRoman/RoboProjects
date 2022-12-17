@@ -1,0 +1,19 @@
+.dots {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+
+    span {
+        width: 14px;
+        height: 14px;
+        border: 2px solid #FFFFFF;
+        border-radius: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .dots {
+        display: none;
+    }
+}

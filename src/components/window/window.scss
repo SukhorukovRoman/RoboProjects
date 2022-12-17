@@ -1,0 +1,52 @@
+@import '../../style/variables';
+
+.window {
+    width: 100%;
+    box-shadow: $main-box-shadow;
+    border: $main-box-border;
+    background: #4D7BFF;
+
+    &__header {
+        height: 46px;
+        background: $main-color;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        color: #FFFFFF;
+
+        &-title {
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 46px;
+            text-transform: uppercase;
+        }
+
+        &-icon {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    &__content {
+        padding: 32px;
+        min-height: 350px;
+        background: url("../../images/sphereGrid.svg") center center/cover no-repeat;
+    }
+}
+
+@media (max-width: 992px) {
+    .window {
+        &__content {
+            padding: 20px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .window {
+        &__content {
+            padding: 20px 17px 15px 5px;
+        }
+    }
+}
