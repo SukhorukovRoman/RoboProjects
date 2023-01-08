@@ -37,10 +37,10 @@ const AllProjects = function(props) {
     const sortProjects = (projArr) => {
         if (projArr?.length) {
             return projArr.sort(function (a, b) {
-                if (a?.props?.visits > b?.props?.visits) {
+                if (+a?.props?.visits > +b?.props?.visits) {
                     return -1;
                 }
-                if (a?.props?.visits < b?.props?.visits) {
+                if (+a?.props?.visits < +b?.props?.visits) {
                     return 1;
                 }
                 // a должно быть равным b
