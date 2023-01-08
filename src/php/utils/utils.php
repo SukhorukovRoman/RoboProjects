@@ -1,5 +1,5 @@
 <?php
-
+setlocale(LC_ALL, 'ru_RU');
 function save_file($file, $newFileName, $uploadDir, $needUnArchive) {
     $fileName = pathinfo($file['name'])['filename'];
     $fileType = end(explode(".", $file['name']));
