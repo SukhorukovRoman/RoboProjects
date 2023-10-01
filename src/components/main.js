@@ -16,7 +16,7 @@ const Main = function(props) {
     const {request} = useHttp();
     const {projects, loading, error, onProjectChanged} = props;
 
-    const [isAdmin, setIsAdmin] = useState(sessionStorage.getItem('admin'));
+    const [isAdmin, setIsAdmin] = useState(sessionStorage.getItem('admin') === 'true');
     const [checkPasswordMod, setCheckPasswordMod] = useState(false);
 
     const checkAdmin = () => {
